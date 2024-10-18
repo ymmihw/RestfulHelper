@@ -2,6 +2,9 @@ package com.github.goldsubmarine.restfulhelper.annotations
 
 import com.intellij.psi.PsiAnnotation
 import com.github.goldsubmarine.restfulhelper.RequestMappingItem
+import com.github.goldsubmarine.restfulhelper.annotations.ctfo.ApiResource
+import com.github.goldsubmarine.restfulhelper.annotations.ctfo.GetResource
+import com.github.goldsubmarine.restfulhelper.annotations.ctfo.PostResource
 import com.github.goldsubmarine.restfulhelper.annotations.jaxrs.DELETE
 import com.github.goldsubmarine.restfulhelper.annotations.jaxrs.GET
 import com.github.goldsubmarine.restfulhelper.annotations.jaxrs.HEAD
@@ -50,7 +53,11 @@ interface MappingAnnotation {
             Options::class.java.simpleName,
             Patch::class.java.simpleName,
             Post::class.java.simpleName,
-            Put::class.java.simpleName
+            Put::class.java.simpleName,
+
+            PostResource::class.java.simpleName,
+            GetResource::class.java.simpleName,
+            ApiResource::class.java.simpleName,
         )
 
         fun mappingAnnotation(annotationName: String, psiAnnotation: PsiAnnotation): MappingAnnotation {
@@ -77,6 +84,10 @@ interface MappingAnnotation {
                 Head::class.java.simpleName -> Head(psiAnnotation)
                 Delete::class.java.simpleName -> Delete(psiAnnotation)
                 Patch::class.java.simpleName -> Patch(psiAnnotation)
+
+                PostResource::class.java.simpleName -> PostResource(psiAnnotation)
+                GetResource::class.java.simpleName -> GetResource(psiAnnotation)
+                ApiResource::class.java.simpleName -> ApiResource(psiAnnotation)
 
                 else -> UnknownAnnotation
             }

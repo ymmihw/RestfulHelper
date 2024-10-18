@@ -7,6 +7,7 @@ import com.intellij.psi.PsiAnnotation
 import com.github.goldsubmarine.restfulhelper.RequestMappingItem
 import com.github.goldsubmarine.restfulhelper.annotations.MappingAnnotation.Companion.mappingAnnotation
 import com.github.goldsubmarine.restfulhelper.annotations.MappingAnnotation.Companion.supportedAnnotations
+import com.github.goldsubmarine.restfulhelper.annotations.ctfo.CTFO_PACKAGE_NAMES
 import com.github.goldsubmarine.restfulhelper.annotations.jaxrs.JAXRS_PACKAGE_NAME
 import com.github.goldsubmarine.restfulhelper.annotations.micronaut.MICRONAUT_PACKAGE_NAME
 import com.github.goldsubmarine.restfulhelper.annotations.spring.SPRING_PACKAGE_NAME
@@ -40,6 +41,7 @@ abstract class RequestMappingByNameContributor(
             .filter {
                 it.qualifiedName!!.contains(MICRONAUT_PACKAGE_NAME)
                     || it.qualifiedName!!.contains(SPRING_PACKAGE_NAME)
+                    || CTFO_PACKAGE_NAMES.any { packageName -> it.qualifiedName!!.contains(packageName) }
                     || it.qualifiedName!!.contains(JAXRS_PACKAGE_NAME)
             }
             .map { annotation -> mappingAnnotation(annotationName, annotation) }
