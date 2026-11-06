@@ -5,9 +5,9 @@ apacheText = "1.15.0"
 
 # plugins
 changelog = "2.2.1"
-intelliJPlatform = "2.18.0"
-kotlin = "2.3.20"
-kover = "0.8.1"
+intelliJPlatform = "2.20.0"
+kotlin = "2.5.0-Beta2"
+kover = "0.9.11"
 qodana = "2024.1.5"
 
 [libraries]
@@ -20,3 +20,4 @@ intelliJPlatform = { id = "org.jetbrains.intellij.platform", version.ref = "inte
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 qodana = { id = "org.jetbrains.qodana", version.ref = "qodana" }
+kotlinAllOpen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
